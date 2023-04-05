@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %} | Login{% endblock %}
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+{% block content %}
+<section class="section-conten padding-y" style="min-height:84vh">
+
+    <!-- ============================ COMPONENT LOGIN   ================================= -->
+    <div class="card" style="max-width:auto; max-height:auto; background: url({% static 'images/hj.png' %})">
+        <div class="card mx-auto" style="max-width: 380px; margin-top:300px; margin-bottom:550px;" >
+          <div class="card-body">
+          <h4 class="card-title mb-4 text-center">Sign in</h4>
+          <form action="{% url 'login'%}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+              <div class="form-group">
+                 <input type="email" name="email" class="form-control" placeholder="Email Address" >
+              </div> <!-- form-group// -->
+              <div class="form-group">
+                <input type="password" name="password" class="form-control" placeholder="Password" >
+              </div> <!-- form-group// -->
+              
+              <div class="form-group">
+                  <a href="{% url 'forgot_password' %}" class="float-right" style="color:black;">Forgot password?</a> 
+              </div> <!-- form-group form-check .// -->
+              <br>
+              <br>
+
+              <div class="form-group">
+                  <button type="submit" value="Submit" class="btn btn-primary btn-block">Login</button>
+              </div> <!-- form-group// -->    
+          
+          <div class="social-login">
+            <a href="{% provider_login_url 'google' %}" class="google-login"><i class="fab fa-google"></i>Google</a>
+            <a href="{% provider_login_url 'facebook' method='oauth2' %}" class="facebook-login"><i class="fab fa-facebook"></i>Facebook</a>
+          </div>
+          </div> <!-- card-body.// -->
+          <p class="text-center mt-4 ">Don't have account? <a href="{% url 'registerUser'%}" style="color:black;">Sign up</a></p>
+        </form>
+        {% include 'includes/alerts.html' %}
+        </div> <!-- card .// -->
+    
+        
+         <br><br>
+    </div>    
+    <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+    
+    
+    </section>
+    <!-- ========================= SECTION CONTENT END// ========================= -->
+
+    
+
+{% endblock %}

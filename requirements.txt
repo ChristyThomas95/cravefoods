@@ -1,0 +1,17 @@
+asgiref
+certifi
+charset-normalizer
+Django
+idna
+Pillow
+psycopg2-binary
+python-decouple
+pytz
+requests
+simplejson
+sqlparse
+tzdata
+urllib3
+backports.zoneinfo==0.2.1;python_version<"3.9"
+gunicorn
+django-allauth

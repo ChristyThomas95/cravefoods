@@ -1,0 +1,13 @@
+{% autoescape off %}
+
+Hello, {{ user.first_name}},
+
+{% if is_approved %}
+    Congratulations ! Your Store has been approved by our team. Welcome to the Crave family! 
+{% else %}
+    we are sorry to inform you that, Your store is not eligible. Please visit our website for more information and know about our policies
+{% endif %}    
+
+
+
+{% endautoescape %}
